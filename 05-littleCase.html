@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src= './todo-single.js'></script>
+    <div id='app'>
+        <input type='text' placeholder="edit something" v-model='newText' :key='newId'/>
+        <button @click='pressAdd'>
+            add
+        </button>
+        <ul v-if='show'>
+            <li is='todo-single' v-for='(item,index) in items' :key='item.id' :text='item.text' @remove='items.splice(index,1)'></li>
+        </ul>
+        <ul v-else>暂无内容</ul>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                show: false,
+                items: [],
+                newText:'',
+                newId:1
+            },
+            methods:{
+                pressAdd: function(){  
+                        this.show = true                
+                        this.items.push({text:this.newText,id:this.newId++})
+                        this.newText = ''   
+                },
+                deleteItem: function(){
+                    this.items.splice()
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>
