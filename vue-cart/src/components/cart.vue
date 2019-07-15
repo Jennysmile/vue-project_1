@@ -22,7 +22,7 @@
             <tr>
                 <td></td>
                 <td colspan="2">{{ratio}}</td>
-                <td colspan="2">{{money}}</td>
+                <td colspan="2">￥{{money}}</td>
             </tr>
         </table>
     </div>
