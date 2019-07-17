@@ -8,8 +8,8 @@
                 <th>数量</th>
                 <th>价格</th>
             </tr>
-            <tr v-for='(c,index) in cart' :key='c.text'>
-               <td><input type="checkbox" v-model='active'></td>
+            <tr v-for='(c,index) in cart' :key='c.text' :class="{active:c.active}">
+               <td><input type="checkbox" v-model='c.active'></td>
                <td>{{c.text}}</td>
                <td>￥{{c.price}}</td>
                <td>
@@ -22,7 +22,7 @@
             <tr>
                 <td></td>
                 <td colspan="2">{{ratio}}</td>
-                <td colspan="2">{{money}}</td>
+                <td colspan="2">￥{{money}}</td>
             </tr>
         </table>
     </div>
@@ -30,16 +30,20 @@
 
 <script>
     export default {
-        props:['cart'],
+        props:[],
         data(){
             return{
-                active: true
-
+                cart:[]
             }
         },
         methods:{
             minus(i){
-                this.cart[i].count -= 1
+                if(this.cart[i].count>1){
+                    this.cart[i].count -= 1
+                }else{
+                    this.cart.splice(i,1)
+                }
+                
             },
             plus(i){
                 this.cart[i].count += 1
@@ -57,12 +61,24 @@
                 for(let i =0; i<arr.length; i++){    
                     m += arr[i].count*arr[i].price
                 }
-                return m
+                return m //数组用forEach写更方便
             }
+        },
+        created(){
+            this.$bus.$on('addCart',good=>{
+                const ret = this.cart.find(v=>v.text === good.text)
+                if(ret){
+                    ret.count +=1
+                }else{
+                    this.cart.push({...good, count:1, active:true})
+                }
+            })
         }
     }
 </script>
 
-<style lang="scss" scoped>
-
+<style  scoped>
+    tr.active{
+        color:red
+    }
 </style>
