@@ -35,6 +35,14 @@ export default {
   },
   methods: {
       submitForm() {
+          this.$refs.loginForm.validate(valid => {
+              if(valid){
+                  alert('提交成功！')
+              }else{
+                console.log('校验失败！')
+                return false
+              }
+          })
           
       }
   },
