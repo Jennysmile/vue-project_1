@@ -33,7 +33,15 @@
         props:[],
         data(){
             return{
-                cart:[]
+                cart:JSON.parse(localStorage.getItem('cart'))||[]
+            }
+        },
+        watch:{
+            cart:{
+                handler(n,o){
+                    localStorage.setItem('cart',JSON.stringify(n))
+                },
+                deep:true
             }
         },
         methods:{
