@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <form-test></form-test>
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     <p v-if="showName">{{goodsList.name}}</p>
@@ -15,6 +16,7 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import Cart from'./components/cart.vue'
+import FormTest from './components/FormTest.vue';
 import axios from 'axios'
 export default {
   name:'app',
@@ -28,7 +30,8 @@ export default {
   },
   components: {
     HelloWorld,
-    Cart
+    Cart,
+    FormTest
   },
   methods:{
     addGood(i){
