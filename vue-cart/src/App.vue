@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <form-test></form-test>
+    <k-button @lalala='handleLalala'></k-button>
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     <p v-if="showName">{{goodsList.name}}</p>
@@ -17,7 +18,9 @@
 import HelloWorld from './components/HelloWorld.vue'
 import Cart from'./components/cart.vue'
 import FormTest from './components/FormTest.vue';
+import KButton from './components/Button.vue';
 import axios from 'axios'
+
 export default {
   name:'app',
   data(){
@@ -31,9 +34,13 @@ export default {
   components: {
     HelloWorld,
     Cart,
-    FormTest
+    FormTest,
+    KButton
   },
   methods:{
+    handleLalala(obj){
+      console.log(obj)
+    },
     addGood(i){
       const good = this.goods[i]
       this.$bus.$emit('addCart',good)
