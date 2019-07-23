@@ -1,11 +1,16 @@
 <template>
   <div>
-    <k-form-item label='用户名' prop='name'>
-      <k-input v-model='ruleForm.name'></k-input>
-    </k-form-item>
-    <k-form-item label='密码' prop='pwd'>
-      <k-input v-model='ruleForm.pwd' type='password'></k-input>
-    </k-form-item>
+    <k-form :model="ruleForm" :rules="rules" ref="loginForm2">
+      <k-form-item label="用户名" prop="name">
+        <k-input v-model="ruleForm.name"></k-input>
+      </k-form-item>
+      <k-form-item label="密码" prop="pwd">
+        <k-input v-model="ruleForm.pwd" type="password"></k-input>
+      </k-form-item>
+      <k-form-item>
+        <el-button type="primary" @click="submitForm2()">登录</el-button>
+      </k-form-item>
+    </k-form>
     {{ruleForm}}
     <h3>element表单</h3>
     <el-form :model="ruleForm" :rules="rules" ref="loginForm">
@@ -24,13 +29,14 @@
 </template>
 
 <script>
-import KInput from './Input.vue';
-import KFormItem from './FormItem.vue';
+import KInput from "./Input.vue";
+import KFormItem from "./FormItem.vue";
+import KForm from "./Form.vue";
 export default {
-  components:{KInput,KFormItem},
+  components: { KInput, KFormItem, KForm },
   data() {
     return {
-      someValue:'some value',
+      someValue: "some value",
       ruleForm: {
         name: "",
         pwd: ""
@@ -45,18 +51,20 @@ export default {
     };
   },
   methods: {
-      submitForm() {
-          this.$refs.loginForm.validate(valid => {
-              if(valid){
-                  alert('提交成功！')
-              }else{
-                console.log('校验失败！')
-                return false
-              }
-          })
-          
-      }
-  },
+    submitForm() {
+      this.$refs.loginForm.validate(valid => {
+        if (valid) {
+          alert("提交成功！");
+        } else {
+          console.log("校验失败！");
+          return false;
+        }
+      });
+    },
+    submitForm2(){
+
+    }
+  }
 };
 </script>
 
