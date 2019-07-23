@@ -1,13 +1,14 @@
 <template>
     <div>
-        <input type='text' :value='inputValue'  @input='inputHandler'>
+        <input :type='type' :value='inputValue'  @input='inputHandler'>
     </div>
 </template>
 
 <script>
     export default {
         props:{
-            value: {type:String,default:''}
+            value: {type:String,default:''},
+            type:{type:String,default:'text'}
         },
         data() {
             return {

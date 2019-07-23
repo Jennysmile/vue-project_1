@@ -1,7 +1,12 @@
 <template>
   <div>
-    <k-input v-model='someValue'></k-input>
-    {{someValue}}
+    <k-form-item label='用户名' prop='name'>
+      <k-input v-model='ruleForm.name'></k-input>
+    </k-form-item>
+    <k-form-item label='密码' prop='pwd'>
+      <k-input v-model='ruleForm.pwd' type='password'></k-input>
+    </k-form-item>
+    {{ruleForm}}
     <h3>element表单</h3>
     <el-form :model="ruleForm" :rules="rules" ref="loginForm">
       <!-- prop用于校验 -->
@@ -20,8 +25,9 @@
 
 <script>
 import KInput from './Input.vue';
+import KFormItem from './FormItem.vue';
 export default {
-  components:{KInput},
+  components:{KInput,KFormItem},
   data() {
     return {
       someValue:'some value',
@@ -54,5 +60,5 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
 </style>
