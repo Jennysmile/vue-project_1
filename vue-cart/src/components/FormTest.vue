@@ -1,5 +1,7 @@
 <template>
   <div>
+    <k-input v-model='someValue'></k-input>
+    {{someValue}}
     <h3>element表单</h3>
     <el-form :model="ruleForm" :rules="rules" ref="loginForm">
       <!-- prop用于校验 -->
@@ -17,9 +19,12 @@
 </template>
 
 <script>
+import KInput from './Input.vue';
 export default {
+  components:{KInput},
   data() {
     return {
+      someValue:'some value',
       ruleForm: {
         name: "",
         pwd: ""
