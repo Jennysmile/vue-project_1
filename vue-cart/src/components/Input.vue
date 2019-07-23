@@ -1,11 +1,13 @@
 <template>
     <div>
+        {{someValue}}
         <input :type='type' :value='inputValue'  @input='inputHandler'>
     </div>
 </template>
 
 <script>
     export default {
+        inject:['someValue'],
         props:{
             value: {type:String,default:''},
             type:{type:String,default:'text'}

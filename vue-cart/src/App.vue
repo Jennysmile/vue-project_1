@@ -23,6 +23,9 @@ import axios from 'axios'
 
 export default {
   name:'app',
+  provide(){
+    return {someValue:'来自祖先'}
+  },
   data(){
     return {
       showName:false,
