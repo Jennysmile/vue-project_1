@@ -61,8 +61,15 @@ export default {
         }
       });
     },
-    submitForm2(){
-
+    submitForm2() {
+      this.$refs.loginForm2.validate(valid => {
+        if (valid) {
+          alert("提交成功！");
+        } else {
+          console.log("校验失败！");
+          return false;
+        }
+      });
     }
   }
 };
