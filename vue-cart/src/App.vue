@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <router-view></router-view>
     <form-test></form-test>
     <k-button @lalala='handleLalala'></k-button>
     <img alt="Vue logo" src="./assets/logo.png">
