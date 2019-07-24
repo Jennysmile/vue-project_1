@@ -21,6 +21,8 @@
             inputHandler(e) {
                 this.inputValue= e.target.value
                 this.$emit('input', this.inputValue)
+                //发送事件，要校验
+                this.$parent.$emit('validate',this.inputValue)
             }
         }
     }
