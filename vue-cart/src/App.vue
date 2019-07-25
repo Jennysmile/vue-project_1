@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <router-link to='/page1'>page1</router-link>|<router-link to='/page2/vuejs'>page2</router-link>
     <router-view></router-view>
     <form-test></form-test>
     <k-button @lalala='handleLalala'></k-button>

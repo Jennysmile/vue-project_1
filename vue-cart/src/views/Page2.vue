@@ -1,6 +1,7 @@
 <template>
     <div>
-        page2
+        <h3>page2</h3>
+        <p>{{$route.params.msg}}</p>
     </div>
 </template>
 

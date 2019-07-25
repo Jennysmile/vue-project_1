@@ -11,6 +11,6 @@ export default new Router({
   routes: [
     {path:'/',redirect:'/page1'},
     {path:'/page1',component:Page1},
-    {path:'/page2',component:Page2}
+    {path:'/page2/:msg',component:Page2}
   ]
 })
