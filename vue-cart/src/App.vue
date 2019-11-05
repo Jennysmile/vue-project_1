@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-link to='/page1/longlong'>page1</router-link>|<router-link to='/static/longlong/msg?id=longlong'>static</router-link>|<router-link to='/page2/1/vuejs?foo=bar'>page2</router-link>
+    <router-link to='/login'>login</router-link>|<router-link to='/dashboard/page1/longlong'>page1</router-link>|<router-link to='/dashboard/static/longlong/msg?id=longlong'>static</router-link>|<router-link to='/dashboard/page2/1/vuejs?foo=bar'>page2</router-link>
     <router-view></router-view>
     <form-test></form-test>
     <k-button @lalala='handleLalala'></k-button>
